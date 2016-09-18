@@ -1467,12 +1467,12 @@
 1393366635 /usr/include/wx-2.8/wx/gtk/filedlg.h
 	"wx/generic/filedlgg.h"
 
-1474179299 source:/home/arcsin/proj/wxmaxima/code_gen/GUIFrame.cpp
+1474179507 source:/home/arcsin/proj/wxmaxima/code_gen/GUIFrame.cpp
 	"wx/wxprec.h"
 	<wx/wx.h>
 	"GUIFrame.h"
 
-1474179507 /home/arcsin/proj/wxmaxima/code_gen/GUIFrame.h
+1474182156 /home/arcsin/proj/wxmaxima/code_gen/GUIFrame.h
 	<wx/string.h>
 	<wx/listbox.h>
 	<wx/gdicmn.h>
@@ -1482,8 +1482,8 @@
 	<wx/button.h>
 	<wx/sizer.h>
 	<wx/checkbox.h>
-	<wx/stattext.h>
 	<wx/textctrl.h>
+	<wx/stattext.h>
 	<wx/panel.h>
 	<wx/bitmap.h>
 	<wx/image.h>
@@ -1512,7 +1512,7 @@
 	"code_genApp.h"
 	"GUIFrame.h"
 
-1474179068 source:/home/arcsin/proj/wxmaxima/code_gen/code_genMain.cpp
+1474179585 source:/home/arcsin/proj/wxmaxima/code_gen/code_genMain.cpp
 	"wx_pch.h"
 	"code_genMain.h"
 

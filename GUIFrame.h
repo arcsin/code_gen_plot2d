@@ -17,8 +17,8 @@
 #include <wx/button.h>
 #include <wx/sizer.h>
 #include <wx/checkbox.h>
-#include <wx/stattext.h>
 #include <wx/textctrl.h>
+#include <wx/stattext.h>
 #include <wx/panel.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
@@ -51,7 +51,6 @@ class GUIFrame : public wxFrame
 		wxButton* m_button7;
 		wxButton* m_button4;
 		wxCheckBox* m_chckBox_abscissa;
-		wxStaticText* m_staticText1;
 		wxTextCtrl* m_txtCtrl_abscissa;
 		wxStaticText* m_staticText2;
 		wxTextCtrl* m_txtCtrl_abscissa1;
@@ -59,7 +58,6 @@ class GUIFrame : public wxFrame
 		wxTextCtrl* m_txtCtrl_abscissa2;
 		wxCheckBox* m_chckBox_abscissaLog;
 		wxCheckBox* m_chckBox_ordinate;
-		wxStaticText* m_staticText4;
 		wxTextCtrl* m_txtCtrl_ordinate;
 		wxStaticText* m_staticText5;
 		wxTextCtrl* m_txtCtrl_ordinate1;

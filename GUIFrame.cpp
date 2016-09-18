@@ -77,10 +77,6 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_chckBox_abscissa->SetValue(true); 
 	bSizer6->Add( m_chckBox_abscissa, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	m_staticText1 = new wxStaticText( m_panel1, wxID_ANY, wxT("Variable"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText1->Wrap( -1 );
-	bSizer6->Add( m_staticText1, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
-	
 	m_txtCtrl_abscissa = new wxTextCtrl( m_panel1, wxID_ANY, wxT("x"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( m_txtCtrl_abscissa, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
@@ -108,10 +104,6 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	m_chckBox_ordinate = new wxCheckBox( m_panel1, wxID_ANY, wxT("ordinate:"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer8->Add( m_chckBox_ordinate, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
-	
-	m_staticText4 = new wxStaticText( m_panel1, wxID_ANY, wxT("Variable"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText4->Wrap( -1 );
-	bSizer8->Add( m_staticText4, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
 	m_txtCtrl_ordinate = new wxTextCtrl( m_panel1, wxID_ANY, wxT("y"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer8->Add( m_txtCtrl_ordinate, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
