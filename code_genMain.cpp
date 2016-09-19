@@ -83,7 +83,7 @@ void code_genFrame::OnGenerate(wxCommandEvent& event)
   wxArrayString expression = m_lstBox_expression->GetStrings();
   s = expression[0];
 
-  for(int i=1;i<expression.GetCount();i++)
+  for(unsigned int i=1;i<expression.GetCount();i++)
   {
    s += wxT(",");
    s += wxT("\n");
@@ -123,6 +123,53 @@ if (m_chckBox_ordinateLog->GetValue())
   s += wxT(",");
   s += wxT("[logy]");
 }
+
+// Text
+if (m_chckBox_title->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString title = m_txtCtrl_title->GetValue();
+  s += wxT("[title, \"") + title + wxT("\"]");
+}
+if (m_chckBox_labelx->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString labelx = m_txtCtrl_labelx->GetValue();
+  s += wxT("[xlabel, \"") + labelx + wxT("\"]");
+}
+if (m_chckBox_labely->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString labely = m_txtCtrl_labely->GetValue();
+  s += wxT("[ylabel, \"") + labely + wxT("\"]");
+}
+//Legend
+if (m_chckBox_legendHide->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  s += wxT("[legend, false]");
+}
+if (m_chckBox_legend->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString legend;
+  for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++) //maybe to do m_grd_legend
+  {
+   legend += wxT(",");
+   legend += wxT("\n");
+   legend += wxT("\"");
+   legend += m_grd_style->GetCellValue(i,0);
+   legend += wxT("\"");
+  }
+
+  s += wxT("[legend") + legend + wxT("]");
+}
+
 
 /*
   // plot format

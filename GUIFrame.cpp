@@ -70,6 +70,31 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	bSizer2->Add( bSizer3, 5, wxEXPAND, 5 );
 	
+	wxBoxSizer* bSizer61;
+	bSizer61 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_chckBox_angle = new wxCheckBox( m_panel1, wxID_ANY, wxT("angle/param:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer61->Add( m_chckBox_angle, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtCtrl_angle = new wxTextCtrl( m_panel1, wxID_ANY, wxT("phi"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer61->Add( m_txtCtrl_angle, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_staticText21 = new wxStaticText( m_panel1, wxID_ANY, wxT("From"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText21->Wrap( -1 );
+	bSizer61->Add( m_staticText21, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtCtrl_angle1 = new wxTextCtrl( m_panel1, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer61->Add( m_txtCtrl_angle1, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_staticText31 = new wxStaticText( m_panel1, wxID_ANY, wxT("To"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText31->Wrap( -1 );
+	bSizer61->Add( m_staticText31, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtCtrl_angle2 = new wxTextCtrl( m_panel1, wxID_ANY, wxT("2*%pi"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer61->Add( m_txtCtrl_angle2, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	bSizer2->Add( bSizer61, 1, wxEXPAND, 5 );
+	
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
 	
@@ -127,130 +152,159 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	bSizer2->Add( bSizer8, 1, wxEXPAND, 5 );
 	
+	wxBoxSizer* bSizer82;
+	bSizer82 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_chckBox_nticks = new wxCheckBox( m_panel1, wxID_ANY, wxT("nticks:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_chckBox_nticks->SetValue(true); 
+	bSizer82->Add( m_chckBox_nticks, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtCtrl_ordinate3 = new wxTextCtrl( m_panel1, wxID_ANY, wxT("300"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer82->Add( m_txtCtrl_ordinate3, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_checkBox_adaptdepth2 = new wxCheckBox( m_panel1, wxID_ANY, wxT("adapt_depth:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer82->Add( m_checkBox_adaptdepth2, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtCtrl_ordinate11 = new wxTextCtrl( m_panel1, wxID_ANY, wxT("2"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer82->Add( m_txtCtrl_ordinate11, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	bSizer2->Add( bSizer82, 1, wxEXPAND, 5 );
+	
 	m_panel1->SetSizer( bSizer2 );
 	m_panel1->Layout();
 	bSizer2->Fit( m_panel1 );
-	m_notebook1->AddPage( m_panel1, wxT("General"), true );
+	m_notebook1->AddPage( m_panel1, wxT("General"), false );
 	m_panel2 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer81;
 	bSizer81 = new wxBoxSizer( wxVERTICAL );
 	
-	m_grid1 = new wxGrid( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_grd_style = new wxGrid( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
-	m_grid1->CreateGrid( 8, 5 );
-	m_grid1->EnableEditing( true );
-	m_grid1->EnableGridLines( true );
-	m_grid1->EnableDragGridSize( false );
-	m_grid1->SetMargins( 0, 0 );
+	m_grd_style->CreateGrid( 8, 5 );
+	m_grd_style->EnableEditing( true );
+	m_grd_style->EnableGridLines( true );
+	m_grd_style->EnableDragGridSize( false );
+	m_grd_style->SetMargins( 0, 0 );
 	
 	// Columns
-	m_grid1->SetColSize( 0, 80 );
-	m_grid1->SetColSize( 1, 80 );
-	m_grid1->SetColSize( 2, 80 );
-	m_grid1->SetColSize( 3, 71 );
-	m_grid1->SetColSize( 4, 78 );
-	m_grid1->EnableDragColMove( false );
-	m_grid1->EnableDragColSize( true );
-	m_grid1->SetColLabelSize( 30 );
-	m_grid1->SetColLabelValue( 0, wxT("Style") );
-	m_grid1->SetColLabelValue( 1, wxT("Width line") );
-	m_grid1->SetColLabelValue( 2, wxT("Scale point") );
-	m_grid1->SetColLabelValue( 3, wxT("Color") );
-	m_grid1->SetColLabelValue( 4, wxT("Type point") );
-	m_grid1->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
+	m_grd_style->SetColSize( 0, 188 );
+	m_grd_style->SetColSize( 1, 88 );
+	m_grd_style->SetColSize( 2, 59 );
+	m_grd_style->SetColSize( 3, 90 );
+	m_grd_style->SetColSize( 4, 92 );
+	m_grd_style->AutoSizeColumns();
+	m_grd_style->EnableDragColMove( false );
+	m_grd_style->EnableDragColSize( true );
+	m_grd_style->SetColLabelSize( 30 );
+	m_grd_style->SetColLabelValue( 0, wxT("Legend") );
+	m_grd_style->SetColLabelValue( 1, wxT("Style") );
+	m_grd_style->SetColLabelValue( 2, wxT("Color") );
+	m_grd_style->SetColLabelValue( 3, wxT("Width line") );
+	m_grd_style->SetColLabelValue( 4, wxT("Type point") );
+	m_grd_style->SetColLabelValue( 5, wxT("Scale point") );
+	m_grd_style->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
-	m_grid1->SetRowSize( 0, 25 );
-	m_grid1->SetRowSize( 1, 25 );
-	m_grid1->SetRowSize( 2, 25 );
-	m_grid1->SetRowSize( 3, 25 );
-	m_grid1->SetRowSize( 4, 25 );
-	m_grid1->SetRowSize( 5, 25 );
-	m_grid1->SetRowSize( 6, 25 );
-	m_grid1->SetRowSize( 7, 25 );
-	m_grid1->EnableDragRowSize( true );
-	m_grid1->SetRowLabelSize( 80 );
-	m_grid1->SetRowLabelValue( 0, wxT("line 1") );
-	m_grid1->SetRowLabelValue( 1, wxT("line 2") );
-	m_grid1->SetRowLabelValue( 2, wxT("line 3") );
-	m_grid1->SetRowLabelValue( 3, wxT("line 4") );
-	m_grid1->SetRowLabelValue( 4, wxT("line 5") );
-	m_grid1->SetRowLabelValue( 5, wxT("line 6") );
-	m_grid1->SetRowLabelValue( 6, wxT("line 7") );
-	m_grid1->SetRowLabelValue( 7, wxT("line 8") );
-	m_grid1->SetRowLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
+	m_grd_style->SetRowSize( 0, 25 );
+	m_grd_style->SetRowSize( 1, 25 );
+	m_grd_style->SetRowSize( 2, 25 );
+	m_grd_style->SetRowSize( 3, 25 );
+	m_grd_style->SetRowSize( 4, 25 );
+	m_grd_style->SetRowSize( 5, 25 );
+	m_grd_style->SetRowSize( 6, 25 );
+	m_grd_style->SetRowSize( 7, 25 );
+	m_grd_style->EnableDragRowSize( true );
+	m_grd_style->SetRowLabelSize( 35 );
+	m_grd_style->SetRowLabelValue( 0, wxT("1") );
+	m_grd_style->SetRowLabelValue( 1, wxT("2") );
+	m_grd_style->SetRowLabelValue( 2, wxT("3") );
+	m_grd_style->SetRowLabelValue( 3, wxT("4") );
+	m_grd_style->SetRowLabelValue( 4, wxT("5") );
+	m_grd_style->SetRowLabelValue( 5, wxT("6") );
+	m_grd_style->SetRowLabelValue( 6, wxT("7") );
+	m_grd_style->SetRowLabelValue( 7, wxT("8") );
+	m_grd_style->SetRowLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Label Appearance
 	
 	// Cell Defaults
-	m_grid1->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer81->Add( m_grid1, 1, wxALL, 5 );
+	m_grd_style->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer81->Add( m_grd_style, 1, wxEXPAND, 5 );
 	
 	m_panel2->SetSizer( bSizer81 );
 	m_panel2->Layout();
 	bSizer81->Fit( m_panel2 );
-	m_notebook1->AddPage( m_panel2, wxT("Style"), false );
+	m_notebook1->AddPage( m_panel2, wxT("Style"), true );
 	m_panel3 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer7;
 	bSizer7 = new wxBoxSizer( wxVERTICAL );
 	
-	m_staticText71 = new wxStaticText( m_panel3, wxID_ANY, wxT("Title"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText71->Wrap( -1 );
-	bSizer7->Add( m_staticText71, 0, wxALL, 5 );
+	m_chckBox_title = new wxCheckBox( m_panel3, wxID_ANY, wxT("Title:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_chckBox_title->SetValue(true); 
+	bSizer7->Add( m_chckBox_title, 0, wxALL, 5 );
 	
-	m_textCtrl8 = new wxTextCtrl( m_panel3, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( m_textCtrl8, 0, wxALL|wxEXPAND, 5 );
+	m_txtCtrl_title = new wxTextCtrl( m_panel3, wxID_ANY, wxT("Figure 1.2: Test "), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7->Add( m_txtCtrl_title, 0, wxALL|wxEXPAND, 5 );
 	
-	m_staticText9 = new wxStaticText( m_panel3, wxID_ANY, wxT("xlabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText9->Wrap( -1 );
-	bSizer7->Add( m_staticText9, 0, wxALL, 5 );
+	m_chckBox_labelx = new wxCheckBox( m_panel3, wxID_ANY, wxT("Label x:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_chckBox_labelx->SetValue(true); 
+	bSizer7->Add( m_chckBox_labelx, 0, wxALL, 5 );
 	
-	m_textCtrl9 = new wxTextCtrl( m_panel3, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( m_textCtrl9, 0, wxALL|wxEXPAND, 5 );
+	m_txtCtrl_labelx = new wxTextCtrl( m_panel3, wxID_ANY, wxT("Label x"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7->Add( m_txtCtrl_labelx, 0, wxALL|wxEXPAND, 5 );
 	
-	m_staticText10 = new wxStaticText( m_panel3, wxID_ANY, wxT("ylabel"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText10->Wrap( -1 );
-	bSizer7->Add( m_staticText10, 0, wxALL, 5 );
+	m_chckBox_labely = new wxCheckBox( m_panel3, wxID_ANY, wxT("Label y:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_chckBox_labely->SetValue(true); 
+	bSizer7->Add( m_chckBox_labely, 0, wxALL, 5 );
 	
-	m_textCtrl10 = new wxTextCtrl( m_panel3, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer7->Add( m_textCtrl10, 0, wxALL|wxEXPAND, 5 );
+	m_txtCtrl_labely = new wxTextCtrl( m_panel3, wxID_ANY, wxT("Label y"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7->Add( m_txtCtrl_labely, 0, wxALL|wxEXPAND, 5 );
 	
-	m_grid2 = new wxGrid( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_chckBox_legendHide = new wxCheckBox( m_panel3, wxID_ANY, wxT("Legend hide"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_chckBox_legendHide->SetValue(true); 
+	bSizer7->Add( m_chckBox_legendHide, 0, wxALL, 5 );
+	
+	m_chckBox_legend = new wxCheckBox( m_panel3, wxID_ANY, wxT("Legend:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer7->Add( m_chckBox_legend, 0, wxALL, 5 );
+	
+	m_grd_label = new wxGrid( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
-	m_grid2->CreateGrid( 8, 1 );
-	m_grid2->EnableEditing( true );
-	m_grid2->EnableGridLines( true );
-	m_grid2->EnableDragGridSize( false );
-	m_grid2->SetMargins( 0, 0 );
+	m_grd_label->CreateGrid( 8, 3 );
+	m_grd_label->EnableEditing( true );
+	m_grd_label->EnableGridLines( true );
+	m_grd_label->EnableDragGridSize( false );
+	m_grd_label->SetMargins( 0, 0 );
 	
 	// Columns
-	m_grid2->SetColSize( 0, 183 );
-	m_grid2->EnableDragColMove( false );
-	m_grid2->EnableDragColSize( true );
-	m_grid2->SetColLabelSize( 30 );
-	m_grid2->SetColLabelValue( 0, wxT("legend") );
-	m_grid2->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
+	m_grd_label->SetColSize( 0, 275 );
+	m_grd_label->EnableDragColMove( false );
+	m_grd_label->EnableDragColSize( true );
+	m_grd_label->SetColLabelSize( 30 );
+	m_grd_label->SetColLabelValue( 0, wxT("label") );
+	m_grd_label->SetColLabelValue( 1, wxT("X") );
+	m_grd_label->SetColLabelValue( 2, wxT("Y") );
+	m_grd_label->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
-	m_grid2->EnableDragRowSize( true );
-	m_grid2->SetRowLabelSize( 80 );
-	m_grid2->SetRowLabelValue( 0, wxT("line1") );
-	m_grid2->SetRowLabelValue( 1, wxT("line2") );
-	m_grid2->SetRowLabelValue( 2, wxT("line3") );
-	m_grid2->SetRowLabelValue( 3, wxT("line4") );
-	m_grid2->SetRowLabelValue( 4, wxT("line5") );
-	m_grid2->SetRowLabelValue( 5, wxT("line6") );
-	m_grid2->SetRowLabelValue( 6, wxT("line7") );
-	m_grid2->SetRowLabelValue( 7, wxT("line8") );
-	m_grid2->SetRowLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
+	m_grd_label->EnableDragRowSize( true );
+	m_grd_label->SetRowLabelSize( 80 );
+	m_grd_label->SetRowLabelValue( 0, wxT("line1") );
+	m_grd_label->SetRowLabelValue( 1, wxT("line2") );
+	m_grd_label->SetRowLabelValue( 2, wxT("line3") );
+	m_grd_label->SetRowLabelValue( 3, wxT("line4") );
+	m_grd_label->SetRowLabelValue( 4, wxT("line5") );
+	m_grd_label->SetRowLabelValue( 5, wxT("line6") );
+	m_grd_label->SetRowLabelValue( 6, wxT("line7") );
+	m_grd_label->SetRowLabelValue( 7, wxT("line8") );
+	m_grd_label->SetRowLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Label Appearance
 	
 	// Cell Defaults
-	m_grid2->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	bSizer7->Add( m_grid2, 1, wxALL|wxEXPAND, 5 );
+	m_grd_label->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	bSizer7->Add( m_grd_label, 1, wxALL|wxEXPAND, 5 );
 	
 	m_panel3->SetSizer( bSizer7 );
 	m_panel3->Layout();
@@ -332,6 +386,8 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_sdbSizer1 = new wxStdDialogButtonSizer();
 	m_sdbSizer1OK = new wxButton( this, wxID_OK );
 	m_sdbSizer1->AddButton( m_sdbSizer1OK );
+	m_sdbSizer1Apply = new wxButton( this, wxID_APPLY );
+	m_sdbSizer1->AddButton( m_sdbSizer1Apply );
 	m_sdbSizer1Cancel = new wxButton( this, wxID_CANCEL );
 	m_sdbSizer1->AddButton( m_sdbSizer1Cancel );
 	m_sdbSizer1->Realize();
@@ -344,11 +400,16 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	
 	this->SetSizer( bSizer18 );
 	this->Layout();
+	bSizer18->Fit( this );
 	
 	this->Centre( wxBOTH );
 	
 	// Connect Events
 	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIFrame::OnClose ) );
+	m_chckBox_angle->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_angle->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_angle1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_angle2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_abscissa->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_abscissa->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_abscissa1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
@@ -359,15 +420,29 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_txtCtrl_ordinate1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_ordinate2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_ordinateLog->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_nticks->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_ordinate3->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_ordinate11->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_title->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_title->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_labelx->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_labelx->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_labely->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_labely->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_legendHide->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_legend->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_button5->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_sdbSizer1Cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Quit ), NULL, this );
-	m_sdbSizer1OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Generate ), NULL, this );
 }
 
 GUIFrame::~GUIFrame()
 {
 	// Disconnect Events
 	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( GUIFrame::OnClose ) );
+	m_chckBox_angle->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_angle->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_angle1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_angle2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_abscissa->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_abscissa->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_abscissa1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
@@ -378,7 +453,17 @@ GUIFrame::~GUIFrame()
 	m_txtCtrl_ordinate1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_ordinate2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_ordinateLog->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_nticks->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_ordinate3->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_ordinate11->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_title->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_title->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_labelx->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_labelx->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_labely->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtCtrl_labely->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_legendHide->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_legend->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_button5->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_sdbSizer1Cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Quit ), NULL, this );
-	m_sdbSizer1OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Generate ), NULL, this );
 }

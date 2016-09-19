@@ -27,6 +27,7 @@ class code_genFrame: public GUIFrame
         virtual void OnClose(wxCloseEvent& event);
         virtual void OnQuit(wxCommandEvent& event);
         virtual void OnGenerate(wxCommandEvent& event);
+
 };
 
 #endif // CODE_GENMAIN_H
