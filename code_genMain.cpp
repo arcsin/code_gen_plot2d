@@ -169,8 +169,74 @@ if (m_chckBox_legend->GetValue())
 
   s += wxT("[legend") + legend + wxT("]");
 }
+//Style
+if (true) // TODO
+{
+    s += wxT(",");
+    s += wxT("\n");
+    wxString style;
+    for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++) //maybe to do m_grd_legend
+    {
+        style += wxT(",");
+        style += wxT("\n");
+        wxString str_trace_type = m_grd_style->GetCellValue(i,1);
+        //int int_trace_type = m_grd_style->GetCellEditor(i,1)
+        int int_trace_type = wxArrayString(WXSIZEOF(trace_types),trace_types).Index(str_trace_type,true,false);
+        wxString str_trace_color = m_grd_style->GetCellValue(i,2);
+        int int_trace_color = wxArrayString(WXSIZEOF(trace_colors),trace_colors).Index(str_trace_color,true,false);
+        wxString str_trace_color_digit = wxString::Format(wxT("%d"),int_trace_color);
+        wxString str_line_wigth = m_grd_style->GetCellValue(i,3);
+        wxString str_point_type_sign = m_grd_style->GetCellValue(i,4);
+        int int_point_type = wxArrayString(WXSIZEOF(point_types_sign),point_types_sign).Index(str_point_type_sign,true,false);
+        wxString str_point_type_name = point_types_name[int_point_type];
+        wxString str_point_type_digit = wxString::Format(wxT("%d"),int_point_type);
+        wxString str_point_size = m_grd_style->GetCellValue(i,5);
 
+        // general style generator
+        style += wxT("[") + str_trace_type + wxT(",");
+        switch(int_trace_type)
+        {
+            case 0: //defaut
+            case 1: //line
+            {
+                style += str_line_wigth
+                 + wxT(",")
+                 + str_trace_color_digit;
+                break;
+            }
+            case 2: //point
+            {
+                style += str_point_size
+                 + wxT(",")
+                 + str_trace_color_digit
+                 + wxT(",")
+                 + str_point_type_digit;
+                break;
+            }
+            case 3: //linespoints
+            {
+                style += str_line_wigth
+                 + wxT(",")
+                 + str_point_size
+                 + wxT(",")
+                 + str_trace_color_digit
+                 + wxT(",")
+                 + str_point_type_digit;
+                break;
+            }
+            case 4: //impulses
+            case 5: //dots
+            {
+                style += str_trace_color_digit;
+                break;
+            }
+        }
+        style += wxT("]");
 
+    }
+
+  s += wxT("[style") + style + wxT("]");
+}
 /*
   // plot format
   if (f != _("default") && f != _("inline"))

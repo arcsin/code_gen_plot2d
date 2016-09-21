@@ -1,0 +1,108 @@
+//paste this code in GUIFrame.h
+const wxString trace_types[]=
+	{
+        wxT("default"),
+        wxT("lines"),
+        wxT("points"),
+        wxT("linespoints"),
+        wxT("impulses"),
+        wxT("dots")
+    };
+
+    const wxString trace_colors[]=
+	{
+        wxT("default"),
+        wxT("blue"),
+        wxT("red"),
+        wxT("green"),
+        wxT("magenta"),
+        wxT("black"),
+        wxT("cyan")
+    };
+
+ /*   const wxString point_types_sign[]=
+	{
+        wxT("default"),
+        wxT("●"),
+        wxT("○"),
+        wxT("+"),
+        wxT("X"),
+        wxT("*"),
+        wxT("■"),
+        wxT("□"),
+        wxT("▲"),
+        wxT("∆"),
+        wxT("▼"),
+        wxT("∇"),
+        wxT("♦"),
+        wxT("◊")
+
+    };
+
+   */
+    const wxString point_types_sign[]=
+	{
+        wxT("default"),
+        wxT("●"),
+        wxT("■"),
+        wxT("▲"),
+        wxT("+"),
+        wxT("X"),
+        wxT("*")
+    };
+/*
+const wxString point_types_name[]=
+	{
+        wxT("default"), //wxT("default"),
+        wxT("bullet"),  //wxT("●"),
+        wxT("circle"),  //wxT("○"),
+        wxT("plus"),    //wxT("+"),
+        wxT("times"),   //wxT("X"),
+        wxT("asterisk"),//wxT("*"),
+        wxT("box"),     //wxT("■"),
+        wxT("square"),  //wxT("□"),
+        wxT("triangle"),//wxT("▲"),
+        wxT("delta"),   //wxT("∆"),
+        wxT("wedge"),   //wxT("▼"),
+        wxT("nabla"),   //wxT("∇"),
+        wxT("diamond"), //wxT("♦"),
+        wxT("lozenge")  //wxT("◊")
+    };
+*/
+const wxString point_types_name[]=
+	{
+        wxT("default"), //wxT("default"),
+        wxT("bullet"),  //wxT("●"),
+        wxT("box"),     //wxT("■"),
+        wxT("triangle"),//wxT("▲"),
+        wxT("plus"),    //wxT("+"),
+        wxT("times"),   //wxT("X"),
+        wxT("asterisk") //wxT("*"),
+    };
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+in cpp
+////////////////////////////////////////////////////////////////////
+
+    for(int i=0;i<m_grd_style->GetRows();i++)
+    {
+        m_grd_style->SetCellEditor(i,1,new wxGridCellChoiceEditor(WXSIZEOF(trace_types),trace_types));
+        m_grd_style->SetCellValue(i,1,trace_types[0]);
+    }
+
+
+    for(int i=0;i<m_grd_style->GetRows();i++)
+    {
+        m_grd_style->SetCellEditor(i,2,new wxGridCellChoiceEditor(WXSIZEOF(trace_colors),trace_colors));
+        m_grd_style->SetCellValue(i,2,trace_colors[0]);
+    }
+
+
+    for(int i=0;i<m_grd_style->GetRows();i++)
+    {
+        m_grd_style->SetCellEditor(i,4,new wxGridCellChoiceEditor(WXSIZEOF(point_types_sign),point_types_sign));
+        m_grd_style->SetCellValue(i,4,point_types_sign[0]);
+    }
