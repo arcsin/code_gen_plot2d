@@ -170,17 +170,119 @@ if (m_chckBox_legend->GetValue())
   s += wxT("[legend") + legend + wxT("]");
 }
 //Style
-if (true) // TODO
+
+// font color = selected color
+// TODO may be remove this to other function
+    for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++) //maybe to do m_grd_legend
+    {
+        wxString str_trace_color = m_grd_style->GetCellValue(i,2);
+        if (str_trace_color.IsSameAs(wxT("default")))
+            m_grd_style->SetCellTextColour(i,2,wxColour(128,128,128));
+        if (str_trace_color.IsSameAs(wxT("blue")))
+            m_grd_style->SetCellTextColour(i,2,wxColour(0,128,255));
+        if (str_trace_color.IsSameAs(wxT("red")))
+            m_grd_style->SetCellTextColour(i,2,wxColour(255,0,0));
+        if (str_trace_color.IsSameAs(wxT("green")))
+            m_grd_style->SetCellTextColour(i,2,wxColour(0,192,0));
+        if (str_trace_color.IsSameAs(wxT("magenta")))
+            m_grd_style->SetCellTextColour(i,2,wxColour(192,0,255));
+        if (str_trace_color.IsSameAs(wxT("black")))
+            m_grd_style->SetCellTextColour(i,2,wxColour(0,0,0));
+        if (str_trace_color.IsSameAs(wxT("cyan")))
+            m_grd_style->SetCellTextColour(i,2,wxColour(0,238,238));
+
+    }
+    m_grd_style->ForceRefresh();
+
+if (true) //point_type separate
+{
+    bool all_point_type_is_default=true;
+    for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++)
+    {
+        wxString trace_type = m_grd_style->GetCellValue(i,1);
+        if ((trace_type.IsSameAs(wxT("points"))
+          || trace_type.IsSameAs(wxT("linespoints")))
+          && !m_grd_style->GetCellValue(i,4).IsSameAs("default"))
+            all_point_type_is_default = false;
+        m_grd_style->SetCellBackgroundColour(i,4,wxColour(255,255,255));
+    }
+    if (!all_point_type_is_default)
+    {
+        wxString point_type;
+        for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++) //maybe to do m_grd_legend
+        {
+            wxString trace_type = m_grd_style->GetCellValue(i,1);
+            if (trace_type.IsSameAs(wxT("points"))
+             || trace_type.IsSameAs(wxT("linespoints")))
+
+            {
+                point_type += wxT(",");
+                wxString str_point_type_sign = m_grd_style->GetCellValue(i,4);
+                int int_point_type = wxArrayString(WXSIZEOF(point_types_sign),point_types_sign).Index(str_point_type_sign,true,false);
+                point_type += point_types_name[int_point_type];
+                if(int_point_type == 0)
+                    m_grd_style->SetCellBackgroundColour(i,4,wxColour(255,0,0));
+            }
+        }
+            s += wxT(",");
+            s += wxT("\n");
+            s += wxT("[point_type") + point_type + wxT("]");
+
+    }
+    m_grd_style->ForceRefresh();
+}
+
+if (true) //trace_color separate
+{
+    bool all_trace_color_is_default=true;
+    for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++)
+    {
+        if(!m_grd_style->GetCellValue(i,2).IsSameAs("default"))
+            all_trace_color_is_default = false;
+        m_grd_style->SetCellBackgroundColour(i,2,wxColour(255,255,255));
+    }
+    if (!all_trace_color_is_default)
+    {
+        wxString trace_color;
+        for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++) //maybe to do m_grd_legend
+        {
+            trace_color += wxT(",");
+            wxString str_trace_color = m_grd_style->GetCellValue(i,2);
+            trace_color += str_trace_color;
+            if(str_trace_color.IsSameAs(wxT("default")))
+                m_grd_style->SetCellBackgroundColour(i,2,wxColour(255,0,0));
+
+        }
+        s += wxT(",");
+        s += wxT("\n");
+        s += wxT("[color") + trace_color + wxT("]");
+
+    }
+    m_grd_style->ForceRefresh();
+}
+
+bool all_style_is_default=true;
+    for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++)
+    {
+        if((!m_grd_style->GetCellValue(i,1).IsSameAs("default"))
+        ||(m_grd_style->GetCellValue(i,3).Len()>0)
+        ||(m_grd_style->GetCellValue(i,5).Len()>0))
+            all_style_is_default = false;
+        m_grd_style->SetCellBackgroundColour(i,1,wxColour(255,255,255));
+
+
+    }
+
+if (!all_style_is_default) // TODO
 {
     s += wxT(",");
     s += wxT("\n");
     wxString style;
     for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++) //maybe to do m_grd_legend
     {
-        style += wxT(",");
-        style += wxT("\n");
+        wxString trace_style;
+
         wxString str_trace_type = m_grd_style->GetCellValue(i,1);
-        //int int_trace_type = m_grd_style->GetCellEditor(i,1)
         int int_trace_type = wxArrayString(WXSIZEOF(trace_types),trace_types).Index(str_trace_type,true,false);
         wxString str_trace_color = m_grd_style->GetCellValue(i,2);
         int int_trace_color = wxArrayString(WXSIZEOF(trace_colors),trace_colors).Index(str_trace_color,true,false);
@@ -192,21 +294,41 @@ if (true) // TODO
         wxString str_point_type_digit = wxString::Format(wxT("%d"),int_point_type);
         wxString str_point_size = m_grd_style->GetCellValue(i,5);
 
+
         // general style generator
-        style += wxT("[") + str_trace_type + wxT(",");
+        trace_style += str_trace_type;
         switch(int_trace_type)
         {
             case 0: //defaut
-            case 1: //line
             {
-                style += str_line_wigth
-                 + wxT(",")
-                 + str_trace_color_digit;
+                m_grd_style->SetCellBackgroundColour(i,1,wxColour(255,0,0));
                 break;
             }
-            case 2: //point
+            case 1: //lines
             {
-                style += str_point_size
+                if (str_line_wigth.Len()>0)
+                {
+                    trace_style += wxT(",")
+                     + str_line_wigth;
+                }
+                if (int_trace_color && // not defaut
+                !true ) // set color not separate
+                {
+                    trace_style+= wxT(",")
+                     + str_trace_color_digit;
+                    if (str_line_wigth.Len()==0)
+                        m_grd_style->SetCellBackgroundColour(i,3,wxColour(255,0,0));
+                    else
+                        m_grd_style->SetCellBackgroundColour(i,3,wxColour(255,255,255));
+
+                }
+
+                break;
+            }
+            case 2: //points
+            {
+                trace_style += wxT(",")
+                 + str_point_size
                  + wxT(",")
                  + str_trace_color_digit
                  + wxT(",")
@@ -215,7 +337,8 @@ if (true) // TODO
             }
             case 3: //linespoints
             {
-                style += str_line_wigth
+                trace_style += wxT(",")
+                 + str_line_wigth
                  + wxT(",")
                  + str_point_size
                  + wxT(",")
@@ -227,12 +350,21 @@ if (true) // TODO
             case 4: //impulses
             case 5: //dots
             {
-                style += str_trace_color_digit;
+                if (int_trace_color && // not defaut
+                !true ) // set color not separate
+                {
+                    trace_style+= wxT(",")
+                     + str_trace_color_digit;
+                }
                 break;
             }
         }
-        style += wxT("]");
-
+        style += wxT(",");
+        style += wxT("\n");
+        if (trace_style.Find(wxT(","))!=wxNOT_FOUND)
+            style += wxT("[") + trace_style + wxT("]");
+        else
+            style += trace_style;
     }
 
   s += wxT("[style") + style + wxT("]");
