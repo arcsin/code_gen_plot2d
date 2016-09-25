@@ -158,7 +158,7 @@ if (m_chckBox_labely->GetValue())
 }
 //Labels
 wxString labels;
-for(unsigned int i=0;i<m_grd_label->GetRows();i++)
+for(int i=0;i<m_grd_label->GetRows();i++)
     {
         if (m_grd_label->GetCellValue(i,0).Len()>0)
         {
@@ -418,7 +418,119 @@ if (!all_style_is_default) // TODO
   s += wxT("[style") + style + wxT("]");
 }
 */
+//      Axes
+// Box
+if (m_rdb_box->GetSelection())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  s += wxT("[box,");
+  switch(m_rdb_box->GetSelection())
+  {
+    case 1: s += wxT("false"); break;
+    case 2: s += wxT("true");  break;
+  }
+  s += wxT("]");
+}
 
+// Box
+if (m_rdb_axes->GetSelection())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  s += wxT("[axes,");
+  switch(m_rdb_axes->GetSelection())
+  {
+    case 1: s += wxT("false"); break;
+    case 2: s += wxT("solid"); break;
+    case 3: s += wxT("true");  break;
+  }
+  s += wxT("]");
+}
+
+// grid2d
+if (m_rdb_grid2d->GetSelection())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  s += wxT("[grid2d,");
+  switch(m_rdb_grid2d->GetSelection())
+  {
+    case 1: s += wxT("false"); break;
+    case 2: s += wxT("true");  break;
+  }
+  s += wxT("]");
+}
+
+// same_xy
+if (m_rdb_same_xy->GetSelection())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  s += wxT("[same_xy,");
+  switch(m_rdb_same_xy->GetSelection())
+  {
+    case 1: s += wxT("false"); break;
+    case 2: s += wxT("true");  break;
+  }
+  s += wxT("]");
+}
+
+// xtics
+if (m_chck_xtics->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString start = m_txt_xtics_start->GetValue();
+  wxString step = m_txt_xtics_step->GetValue();
+  wxString finish = m_txt_xtics_finish->GetValue();
+  s += wxT("[xtics");
+  if (start.Len()>0)
+    s+= wxT(",") + start;
+  s += wxT(",") + step;
+  if (finish.Len()>0)
+    s+= wxT(",") + finish;
+
+    if (step.Len()==0) // 1 parameters is step
+        m_txt_xtics_step->SetBackgroundColour(wxColour(255,0,0));
+    else
+        m_txt_xtics_step->SetBackgroundColour(wxColour(255,255,255));
+
+    if ((finish.Len()>0)&&(start.Len()==0)) // 2 parameters is start and step
+        m_txt_xtics_start->SetBackgroundColour(wxColour(255,0,0));
+    else
+        m_txt_xtics_start->SetBackgroundColour(wxColour(255,255,255));
+
+    s += wxT("]");
+}
+
+// ytics
+if (m_chck_ytics->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString start = m_txt_ytics_start->GetValue();
+  wxString step = m_txt_ytics_step->GetValue();
+  wxString finish = m_txt_ytics_finish->GetValue();
+  s += wxT("[ytics");
+  if (start.Len()>0)
+    s+= wxT(",") + start;
+  s += wxT(",") + step;
+  if (finish.Len()>0)
+    s+= wxT(",") + finish;
+
+    if (step.Len()==0) // 1 parameters is step
+        m_txt_ytics_step->SetBackgroundColour(wxColour(255,0,0));
+    else
+        m_txt_ytics_step->SetBackgroundColour(wxColour(255,255,255));
+
+    if ((finish.Len()>0)&&(start.Len()==0)) // 2 parameters is start and step
+        m_txt_ytics_start->SetBackgroundColour(wxColour(255,0,0));
+    else
+        m_txt_ytics_start->SetBackgroundColour(wxColour(255,255,255));
+
+    s += wxT("]");
+}
 /*
   // plot format
   if (f != _("default") && f != _("inline"))
