@@ -80,14 +80,11 @@ const wxString point_types_name[]=
         wxT("asterisk") //wxT("*"),
     };
 
-
-
-
 //////////////////////////////////////////////////////////////////////
 in cpp
 ////////////////////////////////////////////////////////////////////
 
-    for(int i=0;i<m_grd_style->GetRows();i++)
+   for(int i=0;i<m_grd_style->GetRows();i++)
     {
         m_grd_style->SetCellEditor(i,1,new wxGridCellChoiceEditor(WXSIZEOF(trace_types),trace_types));
         m_grd_style->SetCellValue(i,1,trace_types[0]);

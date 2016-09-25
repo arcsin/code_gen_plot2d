@@ -2033,7 +2033,7 @@
                                 <object class="notebookpage" expanded="1">
                                     <property name="bitmap"></property>
                                     <property name="label">Style</property>
-                                    <property name="select">1</property>
+                                    <property name="select">0</property>
                                     <object class="wxPanel" expanded="1">
                                         <property name="bg"></property>
                                         <property name="context_help"></property>
@@ -2146,7 +2146,7 @@
                                                     <event name="OnChar"></event>
                                                     <event name="OnEnterWindow"></event>
                                                     <event name="OnEraseBackground"></event>
-                                                    <event name="OnGridCellChange"></event>
+                                                    <event name="OnGridCellChange">OnGenerate</event>
                                                     <event name="OnGridCellLeftClick"></event>
                                                     <event name="OnGridCellLeftDClick"></event>
                                                     <event name="OnGridCellRightClick"></event>
@@ -2318,7 +2318,7 @@
                                 <object class="notebookpage" expanded="1">
                                     <property name="bitmap"></property>
                                     <property name="label">Text</property>
-                                    <property name="select">0</property>
+                                    <property name="select">1</property>
                                     <object class="wxPanel" expanded="1">
                                         <property name="bg"></property>
                                         <property name="context_help"></property>
@@ -2776,7 +2776,7 @@
                                                     <event name="OnChar"></event>
                                                     <event name="OnEnterWindow"></event>
                                                     <event name="OnEraseBackground"></event>
-                                                    <event name="OnGridCellChange"></event>
+                                                    <event name="OnGridCellChange">OnGenerate</event>
                                                     <event name="OnGridCellLeftClick"></event>
                                                     <event name="OnGridCellLeftDClick"></event>
                                                     <event name="OnGridCellRightClick"></event>

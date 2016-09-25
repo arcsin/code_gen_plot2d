@@ -32,95 +32,14 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-const wxString trace_types[]=
-	{
-        wxT("default"),
-        wxT("lines"),
-        wxT("points"),
-        wxT("linespoints"),
-        wxT("impulses"),
-        wxT("dots")
-    };
-
-    const wxString trace_colors[]=
-	{
-        wxT("default"),
-        wxT("blue"),
-        wxT("red"),
-        wxT("green"),
-        wxT("magenta"),
-        wxT("black"),
-        wxT("cyan")
-    };
-
- /*   const wxString point_types_sign[]=
-	{
-        wxT("default"),
-        wxT("●"),
-        wxT("○"),
-        wxT("+"),
-        wxT("X"),
-        wxT("*"),
-        wxT("■"),
-        wxT("□"),
-        wxT("▲"),
-        wxT("∆"),
-        wxT("▼"),
-        wxT("∇"),
-        wxT("♦"),
-        wxT("◊")
-
-    };
-
-   */
-    const wxString point_types_sign[]=
-	{
-        wxT("default"),
-        wxT("●"),
-        wxT("■"),
-        wxT("▲"),
-        wxT("+"),
-        wxT("X"),
-        wxT("*")
-    };
-/*
-const wxString point_types_name[]=
-	{
-        wxT("default"), //wxT("default"),
-        wxT("bullet"),  //wxT("●"),
-        wxT("circle"),  //wxT("○"),
-        wxT("plus"),    //wxT("+"),
-        wxT("times"),   //wxT("X"),
-        wxT("asterisk"),//wxT("*"),
-        wxT("box"),     //wxT("■"),
-        wxT("square"),  //wxT("□"),
-        wxT("triangle"),//wxT("▲"),
-        wxT("delta"),   //wxT("∆"),
-        wxT("wedge"),   //wxT("▼"),
-        wxT("nabla"),   //wxT("∇"),
-        wxT("diamond"), //wxT("♦"),
-        wxT("lozenge")  //wxT("◊")
-    };
-*/
-const wxString point_types_name[]=
-	{
-        wxT("default"), //wxT("default"),
-        wxT("bullet"),  //wxT("●"),
-        wxT("box"),     //wxT("■"),
-        wxT("triangle"),//wxT("▲"),
-        wxT("plus"),    //wxT("+"),
-        wxT("times"),   //wxT("X"),
-        wxT("asterisk") //wxT("*"),
-    };
-
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class GUIFrame
 ///////////////////////////////////////////////////////////////////////////////
-class GUIFrame : public wxFrame
+class GUIFrame : public wxFrame 
 {
 	private:
-
+	
 	protected:
 		wxNotebook* m_notebook1;
 		wxPanel* m_panel1;
@@ -184,18 +103,19 @@ class GUIFrame : public wxFrame
 		wxButton* m_sdbSizer1Apply;
 		wxButton* m_sdbSizer1Cancel;
 		wxTextCtrl* m_textCtrl13;
-
+		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
 		virtual void OnGenerate( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnGenerate( wxGridEvent& event ) { event.Skip(); }
 		virtual void Quit( wxCommandEvent& event ) { event.Skip(); }
-
-
+		
+	
 	public:
-
+		
 		GUIFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("wxWidgets Application Template"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		~GUIFrame();
-
+	
 };
 
 #endif //__GUIFrame__

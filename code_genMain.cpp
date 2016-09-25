@@ -66,8 +66,18 @@ void code_genFrame::OnQuit(wxCommandEvent &event)
     Destroy();
 }
 
+void code_genFrame::OnGenerate(wxGridEvent& event)
+{
+    //wxMessageBox(wxT("HelloWorkd"));
+    this->Generate();
+}
 
 void code_genFrame::OnGenerate(wxCommandEvent& event)
+{
+    this->Generate();
+}
+
+void code_genFrame::Generate()
 {
   //wxString f = combo_box_1->GetValue();     // format
   //wxString p = combo_box_2->GetValue();     // preamble
@@ -146,6 +156,43 @@ if (m_chckBox_labely->GetValue())
   wxString labely = m_txtCtrl_labely->GetValue();
   s += wxT("[ylabel, \"") + labely + wxT("\"]");
 }
+//Labels
+wxString labels;
+for(unsigned int i=0;i<m_grd_label->GetRows();i++)
+    {
+        if (m_grd_label->GetCellValue(i,0).Len()>0)
+        {
+            labels += wxT(",");
+            labels += wxT("\n");
+            labels += wxT("[\"");
+            labels += m_grd_label->GetCellValue(i,0);
+            labels += wxT("\",");
+            labels += m_grd_label->GetCellValue(i,1);
+            labels += wxT(",");
+            labels += m_grd_label->GetCellValue(i,2);
+            labels += wxT("]");
+            if (m_grd_label->GetCellValue(i,1).Len()==0)
+                m_grd_label->SetCellBackgroundColour(i,1,wxColour(255,0,0));
+            else
+                m_grd_label->SetCellBackgroundColour(i,1,wxColour(255,255,255));
+
+            if (m_grd_label->GetCellValue(i,2).Len()==0)
+                m_grd_label->SetCellBackgroundColour(i,2,wxColour(255,0,0));
+            else
+                m_grd_label->SetCellBackgroundColour(i,2,wxColour(255,255,255));
+            m_grd_label->ForceRefresh();
+
+        }
+
+    }
+
+if (labels.Len()>0)
+{
+    s += wxT(",");
+    s += wxT("\n");
+    s += wxT("[label") + labels + wxT("]");
+}
+
 //Legend
 if (m_chckBox_legendHide->GetValue())
 {
@@ -173,6 +220,7 @@ if (m_chckBox_legend->GetValue())
 
 // font color = selected color
 // TODO may be remove this to other function
+/*
     for(unsigned int i=0;i<m_lstBox_expression->GetCount();i++) //maybe to do m_grd_legend
     {
         wxString str_trace_color = m_grd_style->GetCellValue(i,2);
@@ -369,6 +417,8 @@ if (!all_style_is_default) // TODO
 
   s += wxT("[style") + style + wxT("]");
 }
+*/
+
 /*
   // plot format
   if (f != _("default") && f != _("inline"))
