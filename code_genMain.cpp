@@ -85,9 +85,6 @@ void code_genFrame::Generate()
 
   wxString y1 = m_txtCtrl_ordinate1->GetValue();
   wxString y2 = m_txtCtrl_ordinate2->GetValue();
-  //int t = text_ctrl_8->GetValue();          // Number of ticks
-  //wxString file = text_ctrl_9->GetValue();  // plot to file
-
 
   // Expression
   wxArrayString expression = m_lstBox_expression->GetStrings();
@@ -554,35 +551,41 @@ if (m_chck_adapt_depth->GetValue())
   wxString adapt_depth = m_txt_adapt_depth->GetValue();
   s += wxT("[adapt_depth, ") + adapt_depth + wxT("]");
 }
-/*
-  // plot format
-  if (f != _("default") && f != _("inline"))
-    s += wxT(",\n [plot_format, ") + f + wxT("]");
-
-
-  // gnuplot_preamble
-  if (p.Length() > 0)
-    s += wxT(",\n [gnuplot_preamble, \"") + p + wxT("\"]");
-  if (t != 10)
+if (m_chckGP_term->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString gnuplot_term = m_choGPterm->GetString(m_choGPterm->GetSelection());
+  if (m_chck_size->GetValue())
   {
-    s += wxT(",\n [nticks,");
-    s += wxString::Format(wxT("%d"), t);
-    s += wxT("]");
+        wxString width = wxString::Format(wxT("%i"),m_spn_size_width->GetValue());
+        wxString height = wxString::Format(wxT("%i"),m_spn_size_height->GetValue());
+        gnuplot_term = gnuplot_term  + wxT(" size ") + width + wxT(", ") + height;
+        gnuplot_term = wxT("\"") + gnuplot_term + wxT("\"");
   }
 
-// plot to file
-  if (file.Length())
-  {
-    s += wxT(", [gnuplot_term, ps]");
-#if defined (__WXMSW__)
+  s += wxT("[gnuplot_term, ") + gnuplot_term + wxT("]");
+}
+
+ // plot to file
+if (m_chck_out_file->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString gnuplot_out_file = m_txt_out_file->GetValue();
+  // s += wxT(", [gnuplot_term, ps]");
+    #if defined (__WXMSW__)
     file.Replace(wxT("\\"), wxT("/"));
-#endif
+    #endif
 
-    if (file.Right(4) != wxT(".eps") && file.Right(3) != wxT(".ps"))
-      file = file + wxT(".eps");
-    s += wxT(",\n [gnuplot_out_file, \"") + file + wxT("\"]");
-  }
-  */
+  s += wxT("[gnuplot_out_file, \"") + gnuplot_out_file + wxT("\"]");
+}
+
+// gnuplot_preamble
+//  if (p.Length() > 0)
+//    s += wxT(",\n [gnuplot_preamble, \"") + p + wxT("\"]");
+
+
   s = wxT("plot2d(") + s + wxT(")");
 
   // inline?

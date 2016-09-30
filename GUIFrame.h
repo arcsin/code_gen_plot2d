@@ -116,11 +116,14 @@ class GUIFrame : public wxFrame
 		wxChoice* m_choice1;
 		wxRadioBox* m_rdb_box;
 		wxCheckBox* m_chck_size;
+		wxStaticText* m_staticText20;
 		wxSpinCtrl* m_spn_size_width;
 		wxStaticText* m_staticText112;
+		wxStaticText* m_staticText201;
 		wxSpinCtrl* m_spn_size_height;
-		wxCheckBox* m_chckBox23;
-		wxChoice* m_choice2;
+		wxStaticText* m_staticText202;
+		wxCheckBox* m_chckGP_term;
+		wxChoice* m_choGPterm;
 		wxCheckBox* m_chckBox_inline;
 		wxCheckBox* m_chck_out_file;
 		wxTextCtrl* m_txt_out_file;
