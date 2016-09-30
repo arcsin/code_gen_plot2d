@@ -583,13 +583,23 @@ if (m_chck_adapt_depth->GetValue())
     s += wxT(",\n [gnuplot_out_file, \"") + file + wxT("\"]");
   }
   */
-  s = wxT("plot2d(") + s + wxT(")$");
+  s = wxT("plot2d(") + s + wxT(")");
 
   // inline?
-  if (m_chckBox_inline->GetValue())
-    s = wxT("wx") + s;
-
-     m_textCtrl13->SetValue(s);
+    if (m_chckBox_inline->GetValue())
+    {
+        s = wxT("wx") + s;
+        if (m_chck_size->GetValue()) //size of box
+        {
+            wxString width = wxString::Format(wxT("%i"),m_spn_size_width->GetValue());
+            wxString height = wxString::Format(wxT("%i"),m_spn_size_height->GetValue());
+            s += wxT(",");
+            s += wxT("\n");
+            s += wxT("wxplot_size=[")+ width + wxT(",") + height + wxT("]");
+        }
+    }
+    s+=wxT("$");
+    m_textCtrl13->SetValue(s);
 }
 void code_genFrame::OnFileBrowse(wxCommandEvent &event)
 {

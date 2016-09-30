@@ -115,11 +115,11 @@ class GUIFrame : public wxFrame
 		wxStaticText* m_staticText11;
 		wxChoice* m_choice1;
 		wxRadioBox* m_rdb_box;
-		wxCheckBox* m_checkBox29;
-		wxSpinCtrl* m_spinCtrl2;
+		wxCheckBox* m_chck_size;
+		wxSpinCtrl* m_spn_size_width;
 		wxStaticText* m_staticText112;
-		wxSpinCtrl* m_spinCtrl3;
-		wxCheckBox* m_checkBox23;
+		wxSpinCtrl* m_spn_size_height;
+		wxCheckBox* m_chckBox23;
 		wxChoice* m_choice2;
 		wxCheckBox* m_chckBox_inline;
 		wxCheckBox* m_chck_out_file;
@@ -162,7 +162,6 @@ class GUIFrame : public wxFrame
 		virtual void OnClose( wxCloseEvent& event ) { event.Skip(); }
 		virtual void OnGenerate( wxCommandEvent& event ) { event.Skip(); }
 		virtual void OnGenerate( wxGridEvent& event ) { event.Skip(); }
-		virtual void OnGenerate( wxSpinEvent& event ) { event.Skip(); }
 		virtual void OnFileBrowse( wxCommandEvent& event ) { event.Skip(); }
 		virtual void Quit( wxCommandEvent& event ) { event.Skip(); }
 		
