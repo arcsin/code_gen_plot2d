@@ -96,7 +96,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_txtCtrl_angle2 = new wxTextCtrl( m_panel1, wxID_ANY, wxT("2*%pi"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_txtCtrl_angle2, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	bSizer2->Add( bSizer61, 1, wxEXPAND, 5 );
+	bSizer2->Add( bSizer61, 0, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer6;
 	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
@@ -125,7 +125,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_chckBox_abscissaLog = new wxCheckBox( m_panel1, wxID_ANY, wxT("log"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( m_chckBox_abscissaLog, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	bSizer2->Add( bSizer6, 1, wxEXPAND, 5 );
+	bSizer2->Add( bSizer6, 0, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer8;
 	bSizer8 = new wxBoxSizer( wxHORIZONTAL );
@@ -153,26 +153,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_chckBox_ordinateLog = new wxCheckBox( m_panel1, wxID_ANY, wxT("log"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer8->Add( m_chckBox_ordinateLog, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	bSizer2->Add( bSizer8, 1, wxEXPAND, 5 );
-	
-	wxBoxSizer* bSizer14;
-	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
-	
-	m_staticText11 = new wxStaticText( m_panel1, wxID_ANY, wxT("Code style:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText11->Wrap( -1 );
-	bSizer14->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	wxString m_choice1Choices[] = { wxT(" continuous"), wxT("hierarchical without comments"), wxT("hierarchical with comments") };
-	int m_choice1NChoices = sizeof( m_choice1Choices ) / sizeof( wxString );
-	m_choice1 = new wxChoice( m_panel1, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice1NChoices, m_choice1Choices, 0 );
-	m_choice1->SetSelection( 0 );
-	bSizer14->Add( m_choice1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_chckBox_inline = new wxCheckBox( m_panel1, wxID_ANY, wxT("inline plot"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_chckBox_inline->SetValue(true); 
-	bSizer14->Add( m_chckBox_inline, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	bSizer2->Add( bSizer14, 1, wxEXPAND, 5 );
+	bSizer2->Add( bSizer8, 0, wxEXPAND, 5 );
 	
 	m_panel1->SetSizer( bSizer2 );
 	m_panel1->Layout();
@@ -345,12 +326,6 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer19;
 	bSizer19 = new wxBoxSizer( wxVERTICAL );
 	
-	wxString m_rdb_boxChoices[] = { wxT("default"), wxT("false"), wxT("true") };
-	int m_rdb_boxNChoices = sizeof( m_rdb_boxChoices ) / sizeof( wxString );
-	m_rdb_box = new wxRadioBox( m_panel5, wxID_ANY, wxT("Box"), wxDefaultPosition, wxDefaultSize, m_rdb_boxNChoices, m_rdb_boxChoices, 1, wxRA_SPECIFY_ROWS );
-	m_rdb_box->SetSelection( 0 );
-	bSizer19->Add( m_rdb_box, 0, wxALL|wxEXPAND, 5 );
-	
 	wxString m_rdb_axesChoices[] = { wxT("default"), wxT("false"), wxT("solid"), wxT("true") };
 	int m_rdb_axesNChoices = sizeof( m_rdb_axesChoices ) / sizeof( wxString );
 	m_rdb_axes = new wxRadioBox( m_panel5, wxID_ANY, wxT("Axes"), wxDefaultPosition, wxDefaultSize, m_rdb_axesNChoices, m_rdb_axesChoices, 1, wxRA_SPECIFY_ROWS );
@@ -396,7 +371,7 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_txt_xtics_finish = new wxTextCtrl( m_panel5, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer22->Add( m_txt_xtics_finish, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	bSizer19->Add( bSizer22, 1, wxEXPAND, 5 );
+	bSizer19->Add( bSizer22, 0, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer221;
 	bSizer221 = new wxBoxSizer( wxHORIZONTAL );
@@ -425,44 +400,122 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_txt_ytics_finish = new wxTextCtrl( m_panel5, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer221->Add( m_txt_ytics_finish, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	bSizer19->Add( bSizer221, 1, wxEXPAND, 5 );
+	bSizer19->Add( bSizer221, 0, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer202;
 	bSizer202 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_checkBox23 = new wxCheckBox( m_panel5, wxID_ANY, wxT("yx_ratio"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer202->Add( m_checkBox23, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	m_chck_yx_ratio = new wxCheckBox( m_panel5, wxID_ANY, wxT("yx_ratio"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer202->Add( m_chck_yx_ratio, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	m_spinCtrl2 = new wxSpinCtrl( m_panel5, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 10, 1 );
-	bSizer202->Add( m_spinCtrl2, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	m_txt_yx_ratio = new wxTextCtrl( m_panel5, wxID_ANY, wxT("1"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer202->Add( m_txt_yx_ratio, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
 	m_staticText23 = new wxStaticText( m_panel5, wxID_ANY, wxT("(side ratio of window)"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText23->Wrap( -1 );
 	bSizer202->Add( m_staticText23, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	bSizer19->Add( bSizer202, 1, wxEXPAND, 5 );
+	bSizer19->Add( bSizer202, 0, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer82;
 	bSizer82 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_chckBox_nticks = new wxCheckBox( m_panel5, wxID_ANY, wxT("nticks:"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer82->Add( m_chckBox_nticks, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	m_chck_nticks = new wxCheckBox( m_panel5, wxID_ANY, wxT("nticks:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer82->Add( m_chck_nticks, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	m_txtCtrl_ordinate3 = new wxTextCtrl( m_panel5, wxID_ANY, wxT("300"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer82->Add( m_txtCtrl_ordinate3, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	m_txt_nticks = new wxTextCtrl( m_panel5, wxID_ANY, wxT("300"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer82->Add( m_txt_nticks, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	m_checkBox_adaptdepth2 = new wxCheckBox( m_panel5, wxID_ANY, wxT("adapt_depth:"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer82->Add( m_checkBox_adaptdepth2, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	m_chck_adapt_depth = new wxCheckBox( m_panel5, wxID_ANY, wxT("adapt_depth:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer82->Add( m_chck_adapt_depth, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	m_txtCtrl_ordinate11 = new wxTextCtrl( m_panel5, wxID_ANY, wxT("2"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer82->Add( m_txtCtrl_ordinate11, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	m_txt_adapt_depth = new wxTextCtrl( m_panel5, wxID_ANY, wxT("2"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer82->Add( m_txt_adapt_depth, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
 	
-	bSizer19->Add( bSizer82, 1, wxEXPAND, 5 );
+	bSizer19->Add( bSizer82, 0, wxEXPAND, 5 );
 	
 	m_panel5->SetSizer( bSizer19 );
 	m_panel5->Layout();
 	bSizer19->Fit( m_panel5 );
-	m_notebook1->AddPage( m_panel5, wxT("Axis"), true );
+	m_notebook1->AddPage( m_panel5, wxT("Axis"), false );
+	m_panel6 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxBoxSizer* bSizer26;
+	bSizer26 = new wxBoxSizer( wxVERTICAL );
+	
+	wxBoxSizer* bSizer14;
+	bSizer14 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticText11 = new wxStaticText( m_panel6, wxID_ANY, wxT("Code style:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText11->Wrap( -1 );
+	bSizer14->Add( m_staticText11, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	wxString m_choice1Choices[] = { wxT(" continuous"), wxT("hierarchical without comments"), wxT("hierarchical with comments") };
+	int m_choice1NChoices = sizeof( m_choice1Choices ) / sizeof( wxString );
+	m_choice1 = new wxChoice( m_panel6, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice1NChoices, m_choice1Choices, 0 );
+	m_choice1->SetSelection( 2 );
+	bSizer14->Add( m_choice1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	bSizer26->Add( bSizer14, 0, wxEXPAND, 5 );
+	
+	wxString m_rdb_boxChoices[] = { wxT("default"), wxT("false"), wxT("true") };
+	int m_rdb_boxNChoices = sizeof( m_rdb_boxChoices ) / sizeof( wxString );
+	m_rdb_box = new wxRadioBox( m_panel6, wxID_ANY, wxT("Box"), wxDefaultPosition, wxDefaultSize, m_rdb_boxNChoices, m_rdb_boxChoices, 1, wxRA_SPECIFY_ROWS );
+	m_rdb_box->SetSelection( 0 );
+	bSizer26->Add( m_rdb_box, 0, wxALL|wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer141;
+	bSizer141 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_checkBox29 = new wxCheckBox( m_panel6, wxID_ANY, wxT("size: "), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer141->Add( m_checkBox29, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_spinCtrl2 = new wxSpinCtrl( m_panel6, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 10, 10 );
+	bSizer141->Add( m_spinCtrl2, 0, wxALL, 5 );
+	
+	m_staticText112 = new wxStaticText( m_panel6, wxID_ANY, wxT("x"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText112->Wrap( -1 );
+	bSizer141->Add( m_staticText112, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_spinCtrl3 = new wxSpinCtrl( m_panel6, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_ARROW_KEYS, 0, 10, 10 );
+	bSizer141->Add( m_spinCtrl3, 0, wxALL, 5 );
+	
+	bSizer26->Add( bSizer141, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer27;
+	bSizer27 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_checkBox23 = new wxCheckBox( m_panel6, wxID_ANY, wxT("gnuplot_term"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer27->Add( m_checkBox23, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	wxString m_choice2Choices[] = { wxT("default"), wxT("postscript"), wxT("postscript eps"), wxT("gif"), wxT("png"), wxT("jpeg"), wxT("svg"), wxT("canvas(html5)"), wxT("latex"), wxT("aifm"), wxT("dxf"), wxT("eepic"), wxT("hpgl"), wxT("dumb"), wxT("windows") };
+	int m_choice2NChoices = sizeof( m_choice2Choices ) / sizeof( wxString );
+	m_choice2 = new wxChoice( m_panel6, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice2NChoices, m_choice2Choices, 0 );
+	m_choice2->SetSelection( 0 );
+	bSizer27->Add( m_choice2, 0, wxALL, 5 );
+	
+	m_chckBox_inline = new wxCheckBox( m_panel6, wxID_ANY, wxT("inline plot"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer27->Add( m_chckBox_inline, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	bSizer26->Add( bSizer27, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer271;
+	bSizer271 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_chck_out_file = new wxCheckBox( m_panel6, wxID_ANY, wxT("gnuplot_out_file"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer271->Add( m_chck_out_file, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txt_out_file = new wxTextCtrl( m_panel6, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer271->Add( m_txt_out_file, 1, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_btm_select_out_file = new wxBitmapButton( m_panel6, wxID_ANY, wxNullBitmap, wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	bSizer271->Add( m_btm_select_out_file, 0, wxALL, 5 );
+	
+	bSizer26->Add( bSizer271, 0, wxEXPAND, 5 );
+	
+	m_panel6->SetSizer( bSizer26 );
+	m_panel6->Layout();
+	bSizer26->Fit( m_panel6 );
+	m_notebook1->AddPage( m_panel6, wxT("Output"), true );
 	m_panel4 = new wxPanel( m_notebook1, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxBoxSizer* bSizer11;
 	bSizer11 = new wxBoxSizer( wxVERTICAL );
@@ -470,13 +523,13 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer17;
 	bSizer17 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_checkBox19 = new wxCheckBox( m_panel4, wxID_ANY, wxT("Title:"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer17->Add( m_checkBox19, 1, wxALL, 5 );
+	m_chckGPtitle = new wxCheckBox( m_panel4, wxID_ANY, wxT("Title:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer17->Add( m_chckGPtitle, 1, wxALL, 5 );
 	
-	m_txtgpTitle = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer17->Add( m_txtgpTitle, 5, wxALL|wxEXPAND, 5 );
+	m_txtGPtitle = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer17->Add( m_txtGPtitle, 5, wxALL|wxEXPAND, 5 );
 	
-	bSizer11->Add( bSizer17, 1, wxEXPAND, 5 );
+	bSizer11->Add( bSizer17, 0, wxEXPAND, 5 );
 	
 	wxBoxSizer* bSizer181;
 	bSizer181 = new wxBoxSizer( wxHORIZONTAL );
@@ -487,34 +540,118 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	wxBoxSizer* bSizer121;
 	bSizer121 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_checkBox4 = new wxCheckBox( m_panel4, wxID_ANY, wxT("legend interval"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer121->Add( m_checkBox4, 0, wxALL|wxEXPAND, 5 );
+	m_chckGPlegend_interval = new wxCheckBox( m_panel4, wxID_ANY, wxT("legend interval"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer121->Add( m_chckGPlegend_interval, 0, wxALL|wxEXPAND, 5 );
 	
-	m_spinCtrl1 = new wxSpinCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxSP_WRAP, 0, 10, 3 );
-	bSizer121->Add( m_spinCtrl1, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	m_txtGPlegend_interval = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer121->Add( m_txtGPlegend_interval, 0, wxALL, 5 );
 	
-	bSizer13->Add( bSizer121, 1, wxEXPAND, 5 );
+	bSizer13->Add( bSizer121, 0, wxEXPAND, 5 );
 	
-	m_checkBox5 = new wxCheckBox( m_panel4, wxID_ANY, wxT("legend in box"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer13->Add( m_checkBox5, 0, wxALL, 5 );
+	m_chckGPlegend_in_box = new wxCheckBox( m_panel4, wxID_ANY, wxT("legend in box"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer13->Add( m_chckGPlegend_in_box, 0, wxALL, 5 );
 	
-	m_checkBox6 = new wxCheckBox( m_panel4, wxID_ANY, wxT("legend outside"), wxDefaultPosition, wxDefaultSize, 0 );
-	bSizer13->Add( m_checkBox6, 0, wxALL, 5 );
+	m_chckGPlegend_outside = new wxCheckBox( m_panel4, wxID_ANY, wxT("legend outside"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer13->Add( m_chckGPlegend_outside, 0, wxALL, 5 );
 	
 	bSizer181->Add( bSizer13, 1, wxEXPAND, 5 );
 	
-	wxString m_radioBox1Choices[] = { wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" ") };
-	int m_radioBox1NChoices = sizeof( m_radioBox1Choices ) / sizeof( wxString );
-	m_radioBox1 = new wxRadioBox( m_panel4, wxID_ANY, wxT("legend position"), wxDefaultPosition, wxDefaultSize, m_radioBox1NChoices, m_radioBox1Choices, 3, wxRA_SPECIFY_COLS|wxRA_SPECIFY_ROWS );
-	m_radioBox1->SetSelection( 7 );
-	bSizer181->Add( m_radioBox1, 1, wxALIGN_CENTER, 5 );
+	wxString m_radGPlegend_positionChoices[] = { wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" "), wxT(" ") };
+	int m_radGPlegend_positionNChoices = sizeof( m_radGPlegend_positionChoices ) / sizeof( wxString );
+	m_radGPlegend_position = new wxRadioBox( m_panel4, wxID_ANY, wxT("legend position"), wxDefaultPosition, wxDefaultSize, m_radGPlegend_positionNChoices, m_radGPlegend_positionChoices, 3, wxRA_SPECIFY_COLS|wxRA_SPECIFY_ROWS );
+	m_radGPlegend_position->SetSelection( 2 );
+	bSizer181->Add( m_radGPlegend_position, 1, wxALIGN_CENTER, 5 );
 	
-	bSizer11->Add( bSizer181, 1, wxEXPAND, 5 );
+	bSizer11->Add( bSizer181, 0, wxEXPAND, 5 );
 	
-	wxBoxSizer* bSizer12;
-	bSizer12 = new wxBoxSizer( wxVERTICAL );
+	wxBoxSizer* bSizer31;
+	bSizer31 = new wxBoxSizer( wxHORIZONTAL );
 	
-	bSizer11->Add( bSizer12, 1, wxEXPAND, 5 );
+	m_chckGPencoding = new wxCheckBox( m_panel4, wxID_ANY, wxT("encoding:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer31->Add( m_chckGPencoding, 0, wxALL, 5 );
+	
+	wxString m_choiceGPencodingChoices[] = { wxT("default"), wxT("utf8"), wxT("iso_8859_1"), wxT("iso_8859_2"), wxT("iso_8859_9"), wxT("iso_8859_15"), wxT("koir8r"), wxT("koir8u"), wxT("cp437"), wxT("cp850"), wxT("cp852"), wxT("cp950"), wxT("cp1250"), wxT("cp1251"), wxT("cp1254") };
+	int m_choiceGPencodingNChoices = sizeof( m_choiceGPencodingChoices ) / sizeof( wxString );
+	m_choiceGPencoding = new wxChoice( m_panel4, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choiceGPencodingNChoices, m_choiceGPencodingChoices, 0 );
+	m_choiceGPencoding->SetSelection( 0 );
+	bSizer31->Add( m_choiceGPencoding, 0, wxALL, 5 );
+	
+	bSizer11->Add( bSizer31, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer311;
+	bSizer311 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_chckGPxtics = new wxCheckBox( m_panel4, wxID_ANY, wxT("xtics:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer311->Add( m_chckGPxtics, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_staticText17 = new wxStaticText( m_panel4, wxID_ANY, wxT("step:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText17->Wrap( -1 );
+	bSizer311->Add( m_staticText17, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtGPxtics = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer311->Add( m_txtGPxtics, 0, wxALL, 5 );
+	
+	m_chckGPxnomirror = new wxCheckBox( m_panel4, wxID_ANY, wxT("nomirror (hide up tics)"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer311->Add( m_chckGPxnomirror, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	bSizer11->Add( bSizer311, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer3111;
+	bSizer3111 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_chckGPytics = new wxCheckBox( m_panel4, wxID_ANY, wxT("ytics:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3111->Add( m_chckGPytics, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_staticText171 = new wxStaticText( m_panel4, wxID_ANY, wxT("step:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText171->Wrap( -1 );
+	bSizer3111->Add( m_staticText171, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtGPytics = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3111->Add( m_txtGPytics, 0, wxALL, 5 );
+	
+	m_chckGPynomirror = new wxCheckBox( m_panel4, wxID_ANY, wxT("nomirror (hide right tics)"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3111->Add( m_chckGPynomirror, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	bSizer11->Add( bSizer3111, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer3112;
+	bSizer3112 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_chckGPmxtics = new wxCheckBox( m_panel4, wxID_ANY, wxT("mxtics:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3112->Add( m_chckGPmxtics, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_staticText172 = new wxStaticText( m_panel4, wxID_ANY, wxT("divide step on: "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText172->Wrap( -1 );
+	bSizer3112->Add( m_staticText172, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtGPmxtics = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer3112->Add( m_txtGPmxtics, 0, wxALL, 5 );
+	
+	bSizer11->Add( bSizer3112, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer31121;
+	bSizer31121 = new wxBoxSizer( wxHORIZONTAL );
+	
+	chckGPmytics = new wxCheckBox( m_panel4, wxID_ANY, wxT("mytics:"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer31121->Add( chckGPmytics, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_staticText1721 = new wxStaticText( m_panel4, wxID_ANY, wxT("divide step on: "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText1721->Wrap( -1 );
+	bSizer31121->Add( m_staticText1721, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5 );
+	
+	m_txtGPmytics = new wxTextCtrl( m_panel4, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer31121->Add( m_txtGPmytics, 0, wxALL, 5 );
+	
+	bSizer11->Add( bSizer31121, 0, wxEXPAND, 5 );
+	
+	m_chcklogx = new wxCheckBox( m_panel4, wxID_ANY, wxT("log x"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer11->Add( m_chcklogx, 0, wxALL, 5 );
+	
+	m_chckGPlogy = new wxCheckBox( m_panel4, wxID_ANY, wxT("log y"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer11->Add( m_chckGPlogy, 0, wxALL, 5 );
+	
+	m_chckGPpolar = new wxCheckBox( m_panel4, wxID_ANY, wxT("polar"), wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer11->Add( m_chckGPpolar, 0, wxALL, 5 );
 	
 	m_panel4->SetSizer( bSizer11 );
 	m_panel4->Layout();
@@ -559,8 +696,6 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_txtCtrl_ordinate1->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_ordinate2->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_ordinateLog->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_choice1->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_chckBox_inline->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_title->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_title->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_labelx->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
@@ -571,7 +706,6 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_chckBox_legendHide->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_legend->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_grd_style->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_rdb_box->Connect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_rdb_axes->Connect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_rdb_grid2d->Connect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_rdb_same_xy->Connect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
@@ -583,12 +717,44 @@ GUIFrame::GUIFrame( wxWindow* parent, wxWindowID id, const wxString& title, cons
 	m_txt_ytics_start->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txt_ytics_step->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txt_ytics_finish->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_checkBox23->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_yx_ratio->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_nticks->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txt_nticks->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_adapt_depth->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txt_adapt_depth->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_choice1->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_rdb_box->Connect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_checkBox29->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_spinCtrl2->Connect( wxEVT_COMMAND_SPINCTRL_UPDATED, wxSpinEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_chckBox_nticks->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_txtCtrl_ordinate3->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_checkBox_adaptdepth2->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_txtCtrl_ordinate11->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_spinCtrl3->Connect( wxEVT_COMMAND_SPINCTRL_UPDATED, wxSpinEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_checkBox23->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_choice2->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_inline->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_out_file->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txt_out_file->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_btm_select_out_file->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::OnFileBrowse ), NULL, this );
+	m_chckGPtitle->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPtitle->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlegend_interval->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPlegend_interval->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlegend_in_box->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlegend_outside->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_radGPlegend_position->Connect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPencoding->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_choiceGPencoding->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPxtics->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPxtics->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPxnomirror->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPytics->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPytics->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPynomirror->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPmxtics->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPmxtics->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	chckGPmytics->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPmytics->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chcklogx->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlogy->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPpolar->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_sdbSizer1Cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Quit ), NULL, this );
 }
 
@@ -610,8 +776,6 @@ GUIFrame::~GUIFrame()
 	m_txtCtrl_ordinate1->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_ordinate2->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_ordinateLog->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_choice1->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_chckBox_inline->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_title->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txtCtrl_title->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_labelx->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
@@ -622,7 +786,6 @@ GUIFrame::~GUIFrame()
 	m_chckBox_legendHide->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_chckBox_legend->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_grd_style->Disconnect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_rdb_box->Disconnect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_rdb_axes->Disconnect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_rdb_grid2d->Disconnect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_rdb_same_xy->Disconnect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
@@ -634,11 +797,43 @@ GUIFrame::~GUIFrame()
 	m_txt_ytics_start->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txt_ytics_step->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_txt_ytics_finish->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_checkBox23->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_yx_ratio->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_nticks->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txt_nticks->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_adapt_depth->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txt_adapt_depth->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_choice1->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_rdb_box->Disconnect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_checkBox29->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_spinCtrl2->Disconnect( wxEVT_COMMAND_SPINCTRL_UPDATED, wxSpinEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_chckBox_nticks->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_txtCtrl_ordinate3->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_checkBox_adaptdepth2->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
-	m_txtCtrl_ordinate11->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_spinCtrl3->Disconnect( wxEVT_COMMAND_SPINCTRL_UPDATED, wxSpinEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_checkBox23->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_choice2->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckBox_inline->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chck_out_file->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txt_out_file->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_btm_select_out_file->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::OnFileBrowse ), NULL, this );
+	m_chckGPtitle->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPtitle->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlegend_interval->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPlegend_interval->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlegend_in_box->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlegend_outside->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_radGPlegend_position->Disconnect( wxEVT_COMMAND_RADIOBOX_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPencoding->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_choiceGPencoding->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPxtics->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPxtics->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPxnomirror->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPytics->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPytics->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPynomirror->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPmxtics->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPmxtics->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	chckGPmytics->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_txtGPmytics->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chcklogx->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPlogy->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
+	m_chckGPpolar->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( GUIFrame::OnGenerate ), NULL, this );
 	m_sdbSizer1Cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( GUIFrame::Quit ), NULL, this );
 }

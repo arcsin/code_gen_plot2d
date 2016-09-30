@@ -3240,11 +3240,11 @@
 1474221816 /home/arcsin/programs/code_gen_plot2d/code_genApp.h
 	<wx/app.h>
 
-1474809923 /home/arcsin/programs/code_gen_plot2d/code_genMain.h
+1474920210 /home/arcsin/programs/code_gen_plot2d/code_genMain.h
 	"code_genApp.h"
 	"GUIFrame.h"
 
-1474841150 /home/arcsin/programs/code_gen_plot2d/GUIFrame.h
+1475185000 /home/arcsin/programs/code_gen_plot2d/GUIFrame.h
 	<wx/string.h>
 	<wx/listbox.h>
 	<wx/gdicmn.h>
@@ -3256,14 +3256,15 @@
 	<wx/checkbox.h>
 	<wx/textctrl.h>
 	<wx/stattext.h>
-	<wx/choice.h>
 	<wx/panel.h>
 	<wx/bitmap.h>
 	<wx/image.h>
 	<wx/icon.h>
 	<wx/grid.h>
 	<wx/radiobox.h>
+	<wx/choice.h>
 	<wx/spinctrl.h>
+	<wx/bmpbuttn.h>
 	<wx/notebook.h>
 	<wx/frame.h>
 
@@ -3370,12 +3371,32 @@
 1385999669 /usr/include/wx-3.0/wx/gtk/notebook.h
 	"wx/list.h"
 
-1474841150 source:/home/arcsin/programs/code_gen_plot2d/GUIFrame.cpp
+1474905422 source:/home/arcsin/programs/code_gen_plot2d/GUIFrame.cpp
 	"wx/wxprec.h"
 	<wx/wx.h>
 	"GUIFrame.h"
 
-1474810564 source:/home/arcsin/programs/code_gen_plot2d/code_genMain.cpp
+1474920367 source:/home/arcsin/programs/code_gen_plot2d/code_genMain.cpp
 	"wx_pch.h"
 	"code_genMain.h"
+
+1385999669 /usr/include/wx-3.0/wx/filepicker.h
+	"wx/defs.h"
+	"wx/pickerbase.h"
+	"wx/filename.h"
+	"wx/gtk/filepicker.h"
+	"wx/generic/filepickerg.h"
+
+1385999669 /usr/include/wx-3.0/wx/pickerbase.h
+	"wx/control.h"
+	"wx/sizer.h"
+	"wx/containr.h"
+
+1385999669 /usr/include/wx-3.0/wx/gtk/filepicker.h
+	"wx/generic/filepickerg.h"
+
+1385999669 /usr/include/wx-3.0/wx/generic/filepickerg.h
+	"wx/button.h"
+	"wx/filedlg.h"
+	"wx/dirdlg.h"
 

@@ -29,6 +29,8 @@ class code_genFrame: public GUIFrame
         virtual void OnGenerate(wxCommandEvent& event);
         virtual void OnGenerate(wxGridEvent& event);
         virtual void Generate();
+        virtual void OnFileBrowse(wxCommandEvent &event);
+
 
 };
 

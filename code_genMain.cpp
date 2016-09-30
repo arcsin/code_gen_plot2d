@@ -477,8 +477,11 @@ if (m_rdb_same_xy->GetSelection())
 }
 
 // xtics
+    m_txt_xtics_step->SetBackgroundColour(wxColour(255,255,255));
+    m_txt_xtics_start->SetBackgroundColour(wxColour(255,255,255));
 if (m_chck_xtics->GetValue())
 {
+
   s += wxT(",");
   s += wxT("\n");
   wxString start = m_txt_xtics_start->GetValue();
@@ -493,20 +496,19 @@ if (m_chck_xtics->GetValue())
 
     if (step.Len()==0) // 1 parameters is step
         m_txt_xtics_step->SetBackgroundColour(wxColour(255,0,0));
-    else
-        m_txt_xtics_step->SetBackgroundColour(wxColour(255,255,255));
 
     if ((finish.Len()>0)&&(start.Len()==0)) // 2 parameters is start and step
         m_txt_xtics_start->SetBackgroundColour(wxColour(255,0,0));
-    else
-        m_txt_xtics_start->SetBackgroundColour(wxColour(255,255,255));
 
     s += wxT("]");
 }
 
 // ytics
+    m_txt_ytics_step->SetBackgroundColour(wxColour(255,255,255));
+    m_txt_ytics_start->SetBackgroundColour(wxColour(255,255,255));
 if (m_chck_ytics->GetValue())
 {
+
   s += wxT(",");
   s += wxT("\n");
   wxString start = m_txt_ytics_start->GetValue();
@@ -521,15 +523,36 @@ if (m_chck_ytics->GetValue())
 
     if (step.Len()==0) // 1 parameters is step
         m_txt_ytics_step->SetBackgroundColour(wxColour(255,0,0));
-    else
-        m_txt_ytics_step->SetBackgroundColour(wxColour(255,255,255));
 
     if ((finish.Len()>0)&&(start.Len()==0)) // 2 parameters is start and step
         m_txt_ytics_start->SetBackgroundColour(wxColour(255,0,0));
-    else
-        m_txt_ytics_start->SetBackgroundColour(wxColour(255,255,255));
 
     s += wxT("]");
+}
+// yx_ratio
+if (m_chck_yx_ratio->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString yx_ratio = m_txt_yx_ratio->GetValue();
+  s += wxT("[yx_ratio, ") + yx_ratio + wxT("]");
+}
+
+// nticks
+if (m_chck_nticks->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString nticks = m_txt_nticks->GetValue();
+  s += wxT("[nticks, ") + nticks + wxT("]");
+}
+// adapt_depth
+if (m_chck_adapt_depth->GetValue())
+{
+  s += wxT(",");
+  s += wxT("\n");
+  wxString adapt_depth = m_txt_adapt_depth->GetValue();
+  s += wxT("[adapt_depth, ") + adapt_depth + wxT("]");
 }
 /*
   // plot format
@@ -567,4 +590,13 @@ if (m_chck_ytics->GetValue())
     s = wxT("wx") + s;
 
      m_textCtrl13->SetValue(s);
+}
+void code_genFrame::OnFileBrowse(wxCommandEvent &event)
+{
+    wxString file = wxFileSelector(_("Save plot to file"), wxEmptyString,
+                                 wxT("plot2d.eps"), wxT("eps"),
+                                 _("Postscript file (*.eps)|*.eps|All|*"),
+                                 wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+  if (file.Length() > 0)
+    m_txt_out_file->SetValue(file);
 }
